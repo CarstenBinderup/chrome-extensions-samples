@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Reading time",
+  "name": "Reading time cb - adding https://dev.azure.com/ to matches",
   "version": "1.0",
   "description": "Add the reading time to Chrome Extension documentation articles",
 
@@ -17,7 +17,8 @@
       ],
       "matches": [
         "https://developer.chrome.com/docs/extensions/*",
-        "https://developer.chrome.com/docs/webstore/*"
+        "https://developer.chrome.com/docs/webstore/*",
+        "https://dev.azure.com/*"
       ]
     }
   ]
