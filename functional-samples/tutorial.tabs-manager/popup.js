@@ -14,8 +14,11 @@
 
 const tabs = await chrome.tabs.query({
   url: [
-    "https://developer.chrome.com/docs/webstore/*",
-    "https://developer.chrome.com/docs/extensions/*",
+      "https://*/*",
+//    "https://developer.chrome.com/docs/webstore/*",
+//    "https://developer.chrome.com/docs/extensions/*",
+//    "https://dev.azure.com/*",
+//    "https://docs.github.com/*",
   ],
 });
 
@@ -25,11 +28,16 @@ tabs.sort((a, b) => collator.compare(a.title, b.title));
 
 const template = document.getElementById("li_template");
 const elements = new Set();
+
+
 for (const tab of tabs) {
   const element = template.content.firstElementChild.cloneNode(true);
 
-  const title = tab.title.split("-")[0].trim();
-  const pathname = new URL(tab.url).pathname.slice("/docs".length);
+
+//  const title = tab.title.split("-")[0].trim();
+  const title = tab.title;
+//  const pathname = new URL(tab.url).pathname.slice("docs/".length);
+  const pathname = new URL(tab.url).pathname;
 
   element.querySelector(".title").textContent = title;
   element.querySelector(".pathname").textContent = pathname;
@@ -41,6 +49,8 @@ for (const tab of tabs) {
 
   elements.add(element);
 }
+
+
 document.querySelector("ul").append(...elements);
 
 const button = document.querySelector("button");

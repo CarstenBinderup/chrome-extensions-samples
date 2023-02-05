@@ -7,17 +7,12 @@
     "default_popup": "hello.html",
     "default_icon": "hello_extensions.png"
   },
-  "content_scripts": [
-    {
-      "matches": [
-        "https://dev.azure.com/*"
-      ]
-    }
+  "permissions": [
+    "tabs",
+    "activeTab"
   ],
   "host_permissions": [
-    "https://dev.azure.com/*"
-  ],
-  "permissions": [
-    "tabGroups"
+    "http://*/*",
+    "https://*/*"
   ]
 }
