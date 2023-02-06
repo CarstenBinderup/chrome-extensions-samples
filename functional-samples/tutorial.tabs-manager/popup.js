@@ -15,8 +15,8 @@
 const tabs = await chrome.tabs.query({
   url: [
       "https://*/*",
-//    "https://developer.chrome.com/docs/webstore/*",
-//    "https://developer.chrome.com/docs/extensions/*",
+    "https://developer.chrome.com/docs/webstore/*",
+    "https://developer.chrome.com/docs/extensions/*",
 //    "https://dev.azure.com/*",
 //    "https://docs.github.com/*",
   ],
@@ -48,7 +48,27 @@ for (const tab of tabs) {
   });
 
   elements.add(element);
-}
+};
+
+for (let counter = 0; counter<4; counter++) {
+  const element = template.content.firstElementChild.cloneNode(true);
+  const title = counter;
+  element.querySelector(".title").textContent = title;
+  element.querySelector(".pathname").textContent = counter*10;
+  elements.add(element);
+  console.log(counter);
+  };
+
+for (let counter = 10; counter<11; counter++) {
+  const element = template.content.firstElementChild.cloneNode(true);
+  const title = counter;
+  element.querySelector(".title").textContent = title;
+  element.querySelector(".pathname").textContent = "https://dev.azure.com/EpistaDev/_apis/projects?api-version=7.0";
+  elements.add(element);
+  console.log(counter);
+  };
+  
+
 
 
 document.querySelector("ul").append(...elements);
